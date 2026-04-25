@@ -1,0 +1,67 @@
+/* ===========================================================================
+ * irc:// design tokens
+ * Hand-tuned. Edit freely. See src/design/DESIGN.md for rationale.
+ * Axes: temperature 0.40 / weight 0.50 / register 0.60 / time 0.20 / voice 0.40
+ * Pairing: mono-only. Single-accent amber. Hairline-zero shape. No shadows.
+ * =========================================================================== */
+
+:root {
+	/* Colors — light mode (default) */
+	--color-brand: #8c4f00;
+	--color-accent: #c77a1a;
+	--color-bg: #f8f4ed;
+	--color-surface: #f1ece0;
+	--color-text: #1a1614;
+	--color-muted: #5c544e;
+	--color-border: #d4ccbc;
+
+	/* Typography — mono everywhere */
+	--font-display: ui-monospace, "SF Mono", Menlo, Consolas, "Cascadia Code",
+		"Liberation Mono", monospace;
+	--font-body: ui-monospace, "SF Mono", Menlo, Consolas, "Cascadia Code",
+		"Liberation Mono", monospace;
+
+	/* Type scale (1.25 ratio) */
+	--font-size-sm: 0.8rem;
+	--font-size-base: 1rem;
+	--font-size-lg: 1.25rem;
+	--font-size-xl: 1.563rem;
+	--font-size-2xl: 1.953rem;
+	--font-size-3xl: 2.441rem;
+	--font-size-4xl: 3.052rem;
+
+	/* Line heights tuned for mono — denser than serif/sans */
+	--line-height-tight: 1.25;
+	--line-height-base: 1.55;
+	--line-height-loose: 1.7;
+
+	/* Reading measure for body text — narrower for mono */
+	--measure: 64ch;
+
+	/* Spacing */
+	--space-xs: 0.25rem;
+	--space-sm: 0.5rem;
+	--space-md: 1rem;
+	--space-lg: 2rem;
+	--space-xl: 4rem;
+
+	/* Shape — hairline, no shadows */
+	--radius-sm: 0;
+	--radius-md: 0;
+	--radius-lg: 0;
+	--shadow-sm: none;
+	--shadow-md: none;
+	--border-hairline: 1px solid var(--color-border);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-brand: #ffb000;
+		--color-accent: #ffc940;
+		--color-bg: #0f0e0c;
+		--color-surface: #1a1714;
+		--color-text: #f0e8d8;
+		--color-muted: #9a9085;
+		--color-border: #3a342c;
+	}
+}

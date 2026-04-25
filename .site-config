@@ -1,0 +1,7 @@
+SITE_TYPE=personal
+OWNER_NAME=David W. Keith
+SITE_NAME=irc://
+DEV_HOSTNAME=irc.dwk.io.local
+AI_MODEL=Claude Opus 4.7 (1M context)
+EXPLAIN_STEPS=false
+ANGLESITE_VERSION=1.0.0-beta.4

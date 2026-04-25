@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "irc:// — a discovery standard for modern IRC";
+const description =
+  "A tiny discovery standard (.well-known/irc.json) and reference client that makes modern IRC as easy to adopt as a podcast feed. Free and self-hostable; subscription is bridge funding for protocol adoption, not a moat.";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "David W. Keith",
+  url: "https://dwk.io",
+  sameAs: ["https://dwk.io"],
+  worksFor: {
+    "@type": "Project",
+    name: "irc://",
+    url: "https://irc.dwk.io",
+  },
+};
+
+const lastModified = "2026-04-24";
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <h1>A discovery standard for modern IRC</h1>
+
+  <p>
+    IRC never crossed the chasm to mass use because onboarding is technical,
+    not because the protocol is bad. Modern <a
+      href="https://ircv3.net/"
+      rel="external">IRCv3</a> has quietly solved the hard parts —
+    <a href="https://ircv3.net/specs/extensions/chathistory" rel="external">chathistory</a>,
+    <a href="https://github.com/ircv3/ircv3-specifications/pull/471" rel="external">web push</a>,
+    <a href="https://github.com/ircv3/ircv3-specifications/pull/435" rel="external">account registration</a>,
+    <a href="https://ircv3.net/wg" rel="external">WebSockets transport</a> — but no client or
+    discovery mechanism puts them together in a way an ordinary person can
+    follow from "site I'm visiting" to "in the conversation."
+  </p>
+
+  <p>
+    The <span class="wordmark">irc://</span> project proposes a tiny
+    discovery standard at <code>/.well-known/irc.json</code> and ships a
+    reference client built on modern IRCv3, so any website can host a
+    first-class community chat with the onboarding friction of subscribing
+    to a podcast.
+  </p>
+
+  <h2>The spec triangle</h2>
+
+  <p>
+    Three sibling JSON formats. Each can be implemented independently;
+    together they handle discovery, browse, and composable trust.
+  </p>
+
+  <ul>
+    <li>
+      <strong><code>application/irc+json</code></strong> at
+      <code>/.well-known/irc.json</code> — a community publishes this on
+      their own origin to advertise their IRC presence (network, channels,
+      required capabilities, governance metadata).
+      <a href="/spec/well-known-irc-json/">Read the spec →</a>
+    </li>
+    <li>
+      <strong><code>application/irc-directory+json</code></strong> at
+      <code>/.well-known/irc-directory.json</code> — a curator publishes
+      this to advertise a list of networks. Multiple directories per
+      client; project ships no default subscription.
+      <a href="/spec/irc-directory-json/">Read the spec →</a>
+    </li>
+    <li>
+      <strong><code>application/irc-trust-list+json</code></strong> at
+      <code>/.well-known/irc-trust-list.json</code> — a curator publishes
+      block, warn, vouch, flag, and annotate entries about networks,
+      channels, accounts, and domains. Composable across many curators
+      with full attribution; modeled on Matrix
+      <a href="https://github.com/the-draupnir-project/Draupnir" rel="external">Draupnir</a>.
+      <a href="/spec/irc-trust-list-json/">Read the spec →</a>
+    </li>
+  </ul>
+
+  <h2>Principles</h2>
+
+  <ul>
+    <li>
+      <strong>IndieNet protocol fidelity.</strong> <code>irc://</code> for
+      chat, <code>mailto:</code> for mail, <code>https://</code> for pages.
+      No central redirector. Each domain owner teaches their own users.
+    </li>
+    <li>
+      <strong>Free protocol, paid convenience.</strong> Anything the
+      protocol can do, the reference client does for free. Subscription
+      revenue is bridge funding for the standards work, not the long-term
+      business.
+    </li>
+    <li>
+      <strong>Permissively licensed, designed to be commoditized.</strong>
+      All code is <a href="https://opensource.org/license/isc-license-txt" rel="external">ISC-licensed</a>;
+      spec text and schemas are released under
+      <a href="https://creativecommons.org/public-domain/cc0/" rel="external">CC0</a>.
+      Anyone — competitor, hyperscaler, hosting provider — can fork,
+      rehost, rebrand, or bundle this into another subscription. That is
+      the goal, not a tolerated side effect.
+    </li>
+    <li>
+      <strong>Composable trust, no arbiter.</strong> Safety signals are
+      composed from mechanical checks plus the user's chosen trust lists.
+      The project is not the referee.
+    </li>
+  </ul>
+
+  <h2>Status</h2>
+
+  <p>
+    All three specifications and their JSON Schemas exist as v0.1 drafts.
+    IANA media-type, well-known-URI, and link-relation registrations are
+    drafted and ready to socialize in <code>#ircv3</code> on Libera before
+    submission. Reference client (Apple-platform, Swift/SwiftUI) is in
+    build prep. Looking for the first civic or institutional adopter.
+  </p>
+
+  <p>
+    <a href="https://github.com/davidwkeith/irc-::" rel="external">Source on GitHub</a>
+  </p>
+
+  <hr />
+
+  <p>
+    <span class="timestamp">Last-Modified: {lastModified}</span>
+  </p>
+</BaseLayout>

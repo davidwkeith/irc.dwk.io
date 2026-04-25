@@ -1,0 +1,28 @@
+# build
+dist
+.astro
+
+# deps
+node_modules
+
+# env
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# editors
+.vscode/
+.idea/
+*.swp
+
+# wrangler
+.wrangler
+
+# local HTTPS certs
+.certs
+
+# annotation feedback (runtime data)
+annotations.json

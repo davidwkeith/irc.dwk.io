@@ -1,0 +1,16 @@
+{
+  "name": "irc://",
+  "short_name": "irc://",
+  "description": "A discovery standard and reference client that makes modern IRC as easy to adopt as a podcast feed.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F8F4ED",
+  "theme_color": "#8C4F00",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

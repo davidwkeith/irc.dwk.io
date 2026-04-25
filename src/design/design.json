@@ -1,0 +1,50 @@
+{
+  "axes": {
+    "temperature": 0.40,
+    "weight": 0.50,
+    "register": 0.60,
+    "time": 0.20,
+    "voice": 0.40
+  },
+  "palette": {
+    "brand": "#8C4F00",
+    "accent": "#C77A1A",
+    "bg": "#F8F4ED",
+    "surface": "#F1ECE0",
+    "text": "#1A1614",
+    "muted": "#5C544E",
+    "border": "#D4CCBC"
+  },
+  "typography": {
+    "display": "ui-monospace, \"SF Mono\", Menlo, Consolas, \"Cascadia Code\", \"Liberation Mono\", monospace",
+    "body": "ui-monospace, \"SF Mono\", Menlo, Consolas, \"Cascadia Code\", \"Liberation Mono\", monospace",
+    "pairing": "mono-only"
+  },
+  "spacing": {
+    "xs": "0.25rem",
+    "sm": "0.5rem",
+    "md": "1rem",
+    "lg": "2rem",
+    "xl": "4rem"
+  },
+  "shape": {
+    "radiusSm": "0",
+    "radiusMd": "0",
+    "radiusLg": "0",
+    "shadowSm": "none",
+    "shadowMd": "none"
+  },
+  "siteType": "personal",
+  "brandColor": "#8C4F00",
+  "generatedAt": "2026-04-24T22:30:00.000Z",
+  "darkMode": {
+    "brand": "#FFB000",
+    "accent": "#FFC940",
+    "bg": "#0F0E0C",
+    "surface": "#1A1714",
+    "text": "#F0E8D8",
+    "muted": "#9A9085",
+    "border": "#3A342C"
+  },
+  "notes": "Hand-tuned outside the default Anglesite generators. Typography is mono-everywhere (no serif/sans pairing) to match the Gen-X-to-Gen-Z RFC/textfiles/htmx aesthetic register. Shape is hairline-zero (no radius, no shadows) for the same brutalist-but-readable posture. Palette is single-accent (amber only); accent is a slightly brighter amber for decorative use, brand is the contrast-passing amber for body/links. Dark mode (prefers-color-scheme: dark) flips to phosphor amber on warm near-black."
+}
