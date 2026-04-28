@@ -5,3 +5,8 @@ DEV_HOSTNAME=irc.dwk.io.local
 AI_MODEL=Claude Opus 4.7 (1M context)
 EXPLAIN_STEPS=false
 ANGLESITE_VERSION=1.0.0-beta.4
+# PII allowlist — intentional emails published in spec content.
+# me@dwk.io is the author contact in canonical spec text; remaining
+# entries are illustrative examples in spec documents using RFC 2606
+# reserved test domains (example.com) or the project's own domain.
+PII_EMAIL_ALLOW=me@dwk.io,directory@irc-protocol.org,trust@example.com,abuse@example.com,you@example.com
