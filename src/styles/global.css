@@ -104,6 +104,47 @@ blockquote {
 	color: var(--color-muted);
 }
 
+table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: var(--font-size-sm);
+}
+
+th, td {
+	border: 1px solid var(--color-border);
+	padding: var(--space-xs) var(--space-sm);
+	text-align: left;
+	vertical-align: top;
+}
+
+th {
+	background: var(--color-surface);
+	font-weight: 700;
+}
+
+/* Long-form spec articles. */
+article.spec h1 {
+	margin-top: 0;
+}
+
+article.spec h2,
+article.spec h3,
+article.spec h4 {
+	margin-top: var(--space-xl);
+}
+
+article.spec h3,
+article.spec h4 {
+	margin-top: var(--space-lg);
+}
+
+article.spec p,
+article.spec ul,
+article.spec ol,
+article.spec table {
+	margin-bottom: var(--space-md);
+}
+
 /* Skip link — accessible bypass for keyboard users. */
 .skip-link {
 	position: absolute;

@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import { Content as WellKnownIrcJson } from "../../specs/well-known-irc-json.md";
+import { Content as IrcDirectoryJson } from "../../specs/irc-directory-json.md";
+import { Content as IrcTrustListJson } from "../../specs/irc-trust-list-json.md";
+
+interface SpecEntry {
+  title: string;
+  description: string;
+  Component: typeof WellKnownIrcJson;
+  /** Canonical source filename in the irc-:: repo's spec/ directory. */
+  sourceFile: string;
+}
+
+const SPECS: Record<string, SpecEntry> = {
+  "well-known-irc-json": {
+    title: "irc:// — Web Discovery for IRC: /.well-known/irc.json",
+    description:
+      "Normative specification for application/irc+json: a web origin's per-community IRC discovery document.",
+    Component: WellKnownIrcJson,
+    sourceFile: "well-known-irc-json.md",
+  },
+  "irc-directory-json": {
+    title: "irc:// — IRC Directory: /.well-known/irc-directory.json",
+    description:
+      "Normative specification for application/irc-directory+json: a curator-published list of pointers to per-Network irc.json documents.",
+    Component: IrcDirectoryJson,
+    sourceFile: "irc-directory.json.md",
+  },
+  "irc-trust-list-json": {
+    title: "irc:// — IRC Trust Lists: /.well-known/irc-trust-list.json",
+    description:
+      "Normative specification for application/irc-trust-list+json: curator-published policy entries about networks, channels, accounts, and domains. Composable, no arbiter.",
+    Component: IrcTrustListJson,
+    sourceFile: "irc-trust-list.json.md",
+  },
+};
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: "well-known-irc-json" } },
+    { params: { slug: "irc-directory-json" } },
+    { params: { slug: "irc-trust-list-json" } },
+  ];
+}
+
+const { slug } = Astro.params;
+const spec = SPECS[slug as string];
+
+if (!spec) {
+  throw new Error(`Unknown spec slug: ${slug}`);
+}
+
+const Content = spec.Component;
+---
+
+<BaseLayout title={spec.title} description={spec.description}>
+  <article class="spec">
+    <Content />
+
+    <hr />
+
+    <p>
+      <span class="timestamp">Source: <a
+        href={`https://github.com/davidwkeith/irc-::/blob/main/spec/${spec.sourceFile}`}
+        rel="external">canonical markdown in the irc-:: repo</a>.
+        Local copy synced via <code>npm run sync-specs</code>.</span>
+    </p>
+    <p>
+      <a href="/">← back to overview</a>
+    </p>
+  </article>
+</BaseLayout>
